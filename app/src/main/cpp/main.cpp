@@ -1,6 +1,6 @@
 /*
- * Progressive Android Next — Pure C++/OpenGL ES IRC Chat
- * Zero JVM UI. Merging into progressive-android 0.5.5+
+ * PCP Android Next — Pure C++/OpenGL ES IRC Chat
+ * Zero JVM UI. Merging into pcp-android 0.5.5+
  */
 
 #include <jni.h>
@@ -235,7 +235,7 @@ static void genData(){
     G.rooms.clear();
     const char*rn[]={"#welcome","#general","#random","#dev","#matrix"};
     const char*rt[]={
-        "Welcome to Progressive IRC | Please read /topic",
+        "Welcome to PCP IRC | Please read /topic",
         "General discussion about anything and everything",
         "Random off-topic chat | Keep it civil",
         "Development | C++ / OpenGL / Matrix bridge",
@@ -325,7 +325,7 @@ static int captureCount=0;
 static void gpuCapture(const char* label){
     unsigned char*gpx=(unsigned char*)malloc(G.w*G.h*3);
     glReadPixels(0,0,G.w,G.h,GL_RGB,GL_UNSIGNED_BYTE,gpx);
-    char fn[128];snprintf(fn,128,"/data/data/chat.progressive.app.next/gpu_%s.ppm",label);
+    char fn[128];snprintf(fn,128,"/data/data/chat.pcp.app.next/gpu_%s.ppm",label);
     FILE*f=fopen(fn,"wb");
     if(f){fprintf(f,"P6\n%d %d\n255\n",G.w,G.h);
         for(int y=G.h-1;y>=0;y--)fwrite(gpx+y*G.w*3,1,G.w*3,f);
@@ -430,8 +430,8 @@ static void renderOnboard(){
     G.btns[2].color=Vec4{C_GREEN};
     btn(G.btns[2],12.0f*G.dp);
 
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-24.0f,
-        "Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-24.0f,
+        "PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 /* ====== PROTOCOL SELECTION SCREEN ====== */
@@ -457,7 +457,7 @@ static void renderServerSelect(){
         sprite((G.w-is)*0.5f,y,is,is,G.texLogo);
         y+=is+8.0f*G.dp;
     }
-    txt((G.w-msr("Progressive Chat",20.0f*G.dp))*0.5f,y,"Progressive Chat",20.0f*G.dp,Vec4{C_TITLE});
+    txt((G.w-msr("PCP",20.0f*G.dp))*0.5f,y,"PCP",20.0f*G.dp,Vec4{C_TITLE});
     y+=30.0f*G.dp;
     txt((G.w-msr("Choose your protocol",14.0f*G.dp))*0.5f,y,"Choose your protocol",14.0f*G.dp,Vec4{C_LABEL});
     y+=30.0f*G.dp;
@@ -582,7 +582,7 @@ static void renderServerSelect(){
     G.btns[3].rect={G.w-50.0f,G.h-55.0f,44.0f,44.0f};G.btns[3].text="#";G.btns[3].color=Vec4{C_DARK};btn(G.btns[3],18.0f*G.dp);
     txt(G.w-msr("Settings",10.0f*G.dp)-60.0f,G.h-55.0f+30.0f,"Settings",10.0f*G.dp,Vec4{C_HINT});
 
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
     /* Version info */
     txt((G.w-msr("Check for updates",9.0f*G.dp))*0.5f,G.h-32.0f,"Check for updates",9.0f*G.dp,Vec4{C_HINT});
     /* Help link */
@@ -636,7 +636,7 @@ static void renderIrcAuth(){
 
     field("Server","irc.libera.chat","irc.libera.chat");
     field("Port","6667","6667");
-    field("Nickname","progressive_user","your nickname");
+    field("Nickname","pcp_user","your nickname");
     field("Password","","********");
 
     /* TLS row inside card - bright, undeniable */
@@ -660,8 +660,8 @@ static void renderIrcAuth(){
     btn(G.btns[2],14.0f*G.dp);
 
     /* Footer */
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",12.0f))*0.5f,G.h-28.0f,
-        "Progressive Chat v0.5.5-pre",12.0f,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",12.0f))*0.5f,G.h-28.0f,
+        "PCP v0.5.5-pre",12.0f,Vec4{C_HINT});
 }
 
 /* ====== MATRIX LOGIN SCREEN ====== */
@@ -751,8 +751,8 @@ static void renderMatrixLogin(){
     txt((G.w-msr("Or sign in with SSO",11.0f*G.dp))*0.5f,cy+44.0f*G.dp,"Or sign in with SSO",11.0f*G.dp,Vec4{C_HINT});
     G.btns[2].text=nullptr;G.btns[2].color=Vec4{0,0,0,0};
 
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-24.0f,
-        "Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-24.0f,
+        "PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 /* ====== SIGN UP SCREEN ====== */
@@ -791,8 +791,8 @@ static void renderSignup(){
     Button reg={{pad,cy,fw,48.0f*G.dp},"Register",Vec4{C_CYAN},false};
     btn(reg,14.0f*G.dp);
 
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-24.0f,
-        "Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-24.0f,
+        "PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 /* ====== PROFILE SCREEN ====== */
@@ -816,7 +816,7 @@ static void renderProfile(){
         G.btns[1+i].color=Vec4{0,0,0,0};G.btns[1+i].text=nullptr;
         y+=48.0f*G.dp;
     }
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 /* ====== SETTINGS SCREEN ====== */
@@ -848,7 +848,7 @@ static void renderSettings(){
     txt(pad,y,"This device - Active now",11.0f*G.dp,Vec4{C_GREEN});y+=18.0f*G.dp;
     txt(pad,y,"Linux Firefox - 2h ago",11.0f*G.dp,Vec4{C_HINT});y+=18.0f*G.dp;
     txt(pad,y,"Android Phone - 1d ago",11.0f*G.dp,Vec4{C_HINT});
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 /* ====== ROOM INFO SCREEN ====== */
@@ -904,7 +904,7 @@ static void renderRoomInfo(){
         G.btns[1+i].color=Vec4{0,0,0,0};G.btns[1+i].text=nullptr;
         y+=48.0f*G.dp;
     }
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 static void renderDrawer(); /* forward */
@@ -999,7 +999,7 @@ static void renderChatList(){
     G.btns[8].rect={pad,by,fw,btnH};
     rct(pad,by,fw,btnH,Vec4{C_DARK});
     txt(pad+(fw-msr("Profile",13.0f*G.dp))*0.5f,by+btnH*0.65f,"Profile",13.0f*G.dp,Vec4{C_CYAN});
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-20.0f,"Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-20.0f,"PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 /* ===== Matrix status overlay ===== */
@@ -1714,9 +1714,9 @@ static bool initGL(JNIEnv*env,jobject am){
     G.dp=(float)G.w/411.0f; /* density scale: 1080px/411dp = 2.63 */
     G.dw=G.w*0.75f;if(G.dw>320.0f)G.dw=320.0f;
     /* Pre-fill Matrix credentials for testing */
-    snprintf(G.login.hsUrl,64,"https://progressive.chat");
+    snprintf(G.login.hsUrl,64,"https://pcp.chat");
     G.login.hsLen=strlen(G.login.hsUrl);
-    snprintf(G.login.user,64,"@temp:progressive.chat");
+    snprintf(G.login.user,64,"@temp:pcp.chat");
     G.login.userLen=strlen(G.login.user);
     snprintf(G.login.pass,64,"temproacc5");
     G.login.passLen=strlen(G.login.pass);
@@ -1725,7 +1725,7 @@ static bool initGL(JNIEnv*env,jobject am){
     frame();
     {unsigned char*gpx=(unsigned char*)malloc(G.w*G.h*3);
     glReadPixels(0,0,G.w,G.h,GL_RGB,GL_UNSIGNED_BYTE,gpx);
-    FILE*f=fopen("/data/data/chat.progressive.app.next/gpu_init.ppm","wb");
+    FILE*f=fopen("/data/data/chat.pcp.app.next/gpu_init.ppm","wb");
     if(f){fprintf(f,"P6\n%d %d\n255\n",G.w,G.h);
         for(int y=G.h-1;y>=0;y--)fwrite(gpx+y*G.w*3,1,G.w*3,f);
         fclose(f);LOGI("GPU init capture %dx%d",G.w,G.h);}
@@ -1735,23 +1735,23 @@ static bool initGL(JNIEnv*env,jobject am){
 
 extern "C"{
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeSetActivity(JNIEnv*env,jclass,jobject act){
+Java_chat_pcp_app_next_MainActivity_nativeSetActivity(JNIEnv*env,jclass,jobject act){
     gActivityObj=env->NewGlobalRef(act);
     gActivityClass=(jclass)env->NewGlobalRef(env->GetObjectClass(act));
     LOGI("Activity stored");
 }
 
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeInit(JNIEnv*e,jclass,jint w,jint h,jobject am){
+Java_chat_pcp_app_next_MainActivity_nativeInit(JNIEnv*e,jclass,jint w,jint h,jobject am){
     G.w=w;G.h=h;if(!G.init)initGL(e,am);
 }
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeResize(JNIEnv*,jclass,jint w,jint h){
+Java_chat_pcp_app_next_MainActivity_nativeResize(JNIEnv*,jclass,jint w,jint h){
     G.w=w;G.h=h;G.dw=w*0.75f;if(G.dw>320.0f)G.dw=320.0f;
     if(G.init){glViewport(0,0,w,h);layoutUI();}
 }
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeRender(JNIEnv*,jclass){
+Java_chat_pcp_app_next_MainActivity_nativeRender(JNIEnv*,jclass){
     if(G.init){
         /* Auto-switch carousel every ~5s (300 frames at 60fps) */
         if(G.screen==SCR_SERVER&&++G.login.frameCount>300){
@@ -1762,7 +1762,7 @@ Java_chat_progressive_app_next_MainActivity_nativeRender(JNIEnv*,jclass){
         static int autoLoginFrames=0;
         if(G.init&&autoLoginFrames==0){autoLoginFrames=1;}
         if(G.screen==SCR_SERVER&&++autoLoginFrames>120&&autoLoginFrames<130){
-            matrixLogin("@temp:progressive.chat","temproacc5");
+            matrixLogin("@temp:pcp.chat","temproacc5");
             autoLoginFrames=1000; /* fire once */
         }
         /* Auto-capture GPU framebuffer on screen transitions */
@@ -1788,17 +1788,17 @@ Java_chat_progressive_app_next_MainActivity_nativeRender(JNIEnv*,jclass){
     }
 }
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeTouchDown(JNIEnv*,jclass,jfloat x,jfloat y){if(G.init)td(x,y);}
+Java_chat_pcp_app_next_MainActivity_nativeTouchDown(JNIEnv*,jclass,jfloat x,jfloat y){if(G.init)td(x,y);}
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeTouchUp(JNIEnv*,jclass,jfloat x,jfloat y){if(G.init)tu(x,y);}
+Java_chat_pcp_app_next_MainActivity_nativeTouchUp(JNIEnv*,jclass,jfloat x,jfloat y){if(G.init)tu(x,y);}
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeTouchMove(JNIEnv*,jclass,jfloat x,jfloat y){if(G.init)tm(x,y);}
+Java_chat_pcp_app_next_MainActivity_nativeTouchMove(JNIEnv*,jclass,jfloat x,jfloat y){if(G.init)tm(x,y);}
 
 JNIEXPORT jint JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeGetFocusField(JNIEnv*,jclass){return G.login.focusField;}
+Java_chat_pcp_app_next_MainActivity_nativeGetFocusField(JNIEnv*,jclass){return G.login.focusField;}
 
 JNIEXPORT jstring JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeGetFieldText(JNIEnv*env,jclass,jint field){
+Java_chat_pcp_app_next_MainActivity_nativeGetFieldText(JNIEnv*env,jclass,jint field){
     const char* t="";
     if(field==1){G.login.hsUrl[G.login.hsLen]=0;t=G.login.hsUrl;}
     else if(field==2){G.login.user[G.login.userLen]=0;t=G.login.user;}
@@ -1809,7 +1809,7 @@ Java_chat_progressive_app_next_MainActivity_nativeGetFieldText(JNIEnv*env,jclass
 }
 
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeSetFieldText(JNIEnv*env,jclass,jint field,jstring jtext){
+Java_chat_pcp_app_next_MainActivity_nativeSetFieldText(JNIEnv*env,jclass,jint field,jstring jtext){
     const char* s=env->GetStringUTFChars(jtext,nullptr);
     int len=strlen(s);if(len>60)len=60;
     if(field==1){memcpy(G.login.hsUrl,s,len);G.login.hsLen=len;}
@@ -1947,7 +1947,7 @@ static void parseSyncResponse(JNIEnv* env,const char* json){
 }
 
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeOnMatrixResult(JNIEnv* env,jclass,jstring jjson){
+Java_chat_pcp_app_next_MainActivity_nativeOnMatrixResult(JNIEnv* env,jclass,jstring jjson){
     const char* json=env->GetStringUTFChars(jjson,nullptr);
     LOGI("Matrix: %.200s",json);
     const char* type=jsonVal(json,"type");
@@ -1963,7 +1963,7 @@ Java_chat_progressive_app_next_MainActivity_nativeOnMatrixResult(JNIEnv* env,jcl
     /* GPU capture on Matrix result */
     {unsigned char*gpx=(unsigned char*)malloc(G.w*G.h*3);
     glReadPixels(0,0,G.w,G.h,GL_RGB,GL_UNSIGNED_BYTE,gpx);
-    FILE*f=fopen("/data/data/chat.progressive.app.next/gpu_mtx.ppm","wb");
+    FILE*f=fopen("/data/data/chat.pcp.app.next/gpu_mtx.ppm","wb");
     if(f){fprintf(f,"P6\n%d %d\n255\n",G.w,G.h);
         for(int y=G.h-1;y>=0;y--)fwrite(gpx+y*G.w*3,1,G.w*3,f);
         fclose(f);LOGI("GPU mtx captured");}
@@ -1972,7 +1972,7 @@ Java_chat_progressive_app_next_MainActivity_nativeOnMatrixResult(JNIEnv* env,jcl
 }
 
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeOnMatrixError(JNIEnv* env,jclass,jstring jerr){
+Java_chat_pcp_app_next_MainActivity_nativeOnMatrixError(JNIEnv* env,jclass,jstring jerr){
     const char* err=env->GetStringUTFChars(jerr,nullptr);
     LOGE("Matrix error: %s",err);
     G.mtxState=MTX_ERROR;
@@ -1981,11 +1981,11 @@ Java_chat_progressive_app_next_MainActivity_nativeOnMatrixError(JNIEnv* env,jcla
 }
 
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeCaptureGPU(JNIEnv*,jclass){
+Java_chat_pcp_app_next_MainActivity_nativeCaptureGPU(JNIEnv*,jclass){
     if(!G.init)return;
     unsigned char*gpx=(unsigned char*)malloc(G.w*G.h*3);
     glReadPixels(0,0,G.w,G.h,GL_RGB,GL_UNSIGNED_BYTE,gpx);
-    FILE*f=fopen("/data/data/chat.progressive.app.next/gpu_cap.ppm","wb");
+    FILE*f=fopen("/data/data/chat.pcp.app.next/gpu_cap.ppm","wb");
     if(f){fprintf(f,"P6\n%d %d\n255\n",G.w,G.h);
         for(int y=G.h-1;y>=0;y--)fwrite(gpx+y*G.w*3,1,G.w*3,f);
         fclose(f);LOGI("GPU capture saved %dx%d",G.w,G.h);}

@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/bym/games/progressive-android-next/app/build/intermediates/cxx/Debug/2l5x6ov1/obj/arm64-v8a/libprogressivenext.so"
+			"path" : "/home/bym/games/pcp-android-next/app/build/intermediates/cxx/Debug/2l5x6ov1/obj/arm64-v8a/libpcpnext.so"
 		}
 	],
 	"backtrace" : 1,
@@ -55,14 +55,14 @@
 			"defines" : 
 			[
 				{
-					"define" : "progressivenext_EXPORTS"
+					"define" : "pcpnext_EXPORTS"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 3,
-					"path" : "/home/bym/games/progressive-android-next/app/src/main/cpp"
+					"path" : "/home/bym/games/pcp-android-next/app/src/main/cpp"
 				}
 			],
 			"language" : "CXX",
@@ -84,7 +84,7 @@
 			}
 		}
 	],
-	"id" : "progressivenext::@6890427a1f51a3e7e1df",
+	"id" : "pcpnext::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -119,8 +119,8 @@
 			"path" : "/home/bym/android-sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/linux-x86_64/sysroot"
 		}
 	},
-	"name" : "progressivenext",
-	"nameOnDisk" : "libprogressivenext.so",
+	"name" : "pcpnext",
+	"nameOnDisk" : "libpcpnext.so",
 	"paths" : 
 	{
 		"build" : ".",

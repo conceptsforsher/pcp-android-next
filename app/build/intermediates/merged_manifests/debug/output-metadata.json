@@ -4,7 +4,7 @@
     "type": "MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "chat.progressive.app.next",
+  "applicationId": "chat.pcp.app.next",
   "variantName": "debug",
   "elements": [
     {

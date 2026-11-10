@@ -1,4 +1,4 @@
-package chat.progressive.app.next;
+package chat.pcp.app.next;
 
 import android.app.Activity;
 import android.content.res.AssetManager;
@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
     private Handler mainHandler = new Handler(Looper.getMainLooper());
     private ExecutorService networkExecutor = Executors.newSingleThreadExecutor();
 
-    static { System.loadLibrary("progressivenext"); }
+    static { System.loadLibrary("pcpnext"); }
 
     private static native void nativeInit(int w, int h, AssetManager assets);
     private static native void nativeSetActivity(MainActivity act);
@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
     private String accessToken = null;
     private String userId = null;
     private String deviceId = null;
-    private String homeserverUrl = "https://progressive.chat";
+    private String homeserverUrl = "https://pcp.chat";
     private String syncSince = null;
     private boolean syncing = false;
 
@@ -302,7 +302,7 @@ public class MainActivity extends Activity {
             /* Auto-login test after 3 seconds */
             mainHandler.postDelayed(() -> {
                 if (accessToken == null) {
-                    matrixLogin("@temp:progressive.chat", "temproacc5");
+                    matrixLogin("@temp:pcp.chat", "temproacc5");
                 }
             }, 3000);
         }

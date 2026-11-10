@@ -1,11 +1,11 @@
 #pragma once
 
 #include <string>
-#include "progressive/http_client.hpp"
-#include "progressive/sync_models.hpp"
-#include "progressive/auth_models.hpp"
+#include "pcp/http_client.hpp"
+#include "pcp/sync_models.hpp"
+#include "pcp/auth_models.hpp"
 
-namespace progressive {
+namespace pcp {
 
 // ==== Native Matrix API Client ====
 //
@@ -166,4 +166,4 @@ std::string apiUnbanUser(const std::string& roomId, const std::string& userId);
 std::string apiRedactEvent(const std::string& roomId, const std::string& eventId,
                            const std::string& txnId, const std::string& reason = "");
 
-} // namespace progressive
+} // namespace pcp

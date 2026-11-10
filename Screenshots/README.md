@@ -1,4 +1,4 @@
-# Progressive Android Next — Screenshots
+# PCP Android Next — Screenshots
 
 GPU framebuffer captures of all app screens (v0.5.5-pre).
 Captured on Samsung SM-G770F (1080×2400, Android 13) via `glReadPixels` → PPM → PNG.

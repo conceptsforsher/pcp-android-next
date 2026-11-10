@@ -1,4 +1,4 @@
-                        -H/home/bym/games/progressive-android-next/app/src/main/cpp
+                        -H/home/bym/games/pcp-android-next/app/src/main/cpp
 -DCMAKE_SYSTEM_NAME=Android
 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 -DCMAKE_SYSTEM_VERSION=24
@@ -9,10 +9,10 @@
 -DCMAKE_ANDROID_NDK=/home/bym/android-sdk/ndk/27.0.12077973
 -DCMAKE_TOOLCHAIN_FILE=/home/bym/android-sdk/ndk/27.0.12077973/build/cmake/android.toolchain.cmake
 -DCMAKE_MAKE_PROGRAM=/home/bym/android-sdk/cmake/3.22.1/bin/ninja
--DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/bym/games/progressive-android-next/app/build/intermediates/cxx/Debug/2l5x6ov1/obj/arm64-v8a
--DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/bym/games/progressive-android-next/app/build/intermediates/cxx/Debug/2l5x6ov1/obj/arm64-v8a
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/bym/games/pcp-android-next/app/build/intermediates/cxx/Debug/2l5x6ov1/obj/arm64-v8a
+-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/bym/games/pcp-android-next/app/build/intermediates/cxx/Debug/2l5x6ov1/obj/arm64-v8a
 -DCMAKE_BUILD_TYPE=Debug
--B/home/bym/games/progressive-android-next/app/.cxx/Debug/2l5x6ov1/arm64-v8a
+-B/home/bym/games/pcp-android-next/app/.cxx/Debug/2l5x6ov1/arm64-v8a
 -GNinja
 -DANDROID_STL=c++_shared
                         Build command args: []
