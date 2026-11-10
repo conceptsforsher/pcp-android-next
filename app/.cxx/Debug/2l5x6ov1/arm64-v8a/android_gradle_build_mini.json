@@ -1,26 +1,26 @@
 {
   "buildFiles": [
-    "/home/bym/games/progressive-android-next/app/src/main/cpp/CMakeLists.txt"
+    "/home/bym/games/pcp-android-next/app/src/main/cpp/CMakeLists.txt"
   ],
   "cleanCommandsComponents": [
     [
       "/home/bym/android-sdk/cmake/3.22.1/bin/ninja",
       "-C",
-      "/home/bym/games/progressive-android-next/app/.cxx/Debug/2l5x6ov1/arm64-v8a",
+      "/home/bym/games/pcp-android-next/app/.cxx/Debug/2l5x6ov1/arm64-v8a",
       "clean"
     ]
   ],
   "buildTargetsCommandComponents": [
     "/home/bym/android-sdk/cmake/3.22.1/bin/ninja",
     "-C",
-    "/home/bym/games/progressive-android-next/app/.cxx/Debug/2l5x6ov1/arm64-v8a",
+    "/home/bym/games/pcp-android-next/app/.cxx/Debug/2l5x6ov1/arm64-v8a",
     "{LIST_OF_TARGETS_TO_BUILD}"
   ],
   "libraries": {
-    "progressivenext::@6890427a1f51a3e7e1df": {
-      "artifactName": "progressivenext",
+    "pcpnext::@6890427a1f51a3e7e1df": {
+      "artifactName": "pcpnext",
       "abi": "arm64-v8a",
-      "output": "/home/bym/games/progressive-android-next/app/build/intermediates/cxx/Debug/2l5x6ov1/obj/arm64-v8a/libprogressivenext.so",
+      "output": "/home/bym/games/pcp-android-next/app/build/intermediates/cxx/Debug/2l5x6ov1/obj/arm64-v8a/libpcpnext.so",
       "runtimeFiles": []
     }
   }

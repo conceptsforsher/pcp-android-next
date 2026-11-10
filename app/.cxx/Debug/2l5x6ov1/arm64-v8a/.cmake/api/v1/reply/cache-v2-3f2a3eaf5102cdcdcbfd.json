@@ -163,7 +163,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/bym/games/progressive-android-next/app/.cxx/Debug/2l5x6ov1/arm64-v8a"
+			"value" : "/home/bym/games/pcp-android-next/app/.cxx/Debug/2l5x6ov1/arm64-v8a"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -683,7 +683,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/bym/games/progressive-android-next/app/src/main/cpp"
+			"value" : "/home/bym/games/pcp-android-next/app/src/main/cpp"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -719,7 +719,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "/home/bym/games/progressive-android-next/app/build/intermediates/cxx/Debug/2l5x6ov1/obj/arm64-v8a"
+			"value" : "/home/bym/games/pcp-android-next/app/build/intermediates/cxx/Debug/2l5x6ov1/obj/arm64-v8a"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -935,7 +935,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "progressivenext"
+			"value" : "pcpnext"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -991,7 +991,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "/home/bym/games/progressive-android-next/app/build/intermediates/cxx/Debug/2l5x6ov1/obj/arm64-v8a"
+			"value" : "/home/bym/games/pcp-android-next/app/build/intermediates/cxx/Debug/2l5x6ov1/obj/arm64-v8a"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1302,7 +1302,7 @@
 			"value" : "/home/bym/android-sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/liblog.so"
 		},
 		{
-			"name" : "progressivenext_BINARY_DIR",
+			"name" : "pcpnext_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1311,10 +1311,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/bym/games/progressive-android-next/app/.cxx/Debug/2l5x6ov1/arm64-v8a"
+			"value" : "/home/bym/games/pcp-android-next/app/.cxx/Debug/2l5x6ov1/arm64-v8a"
 		},
 		{
-			"name" : "progressivenext_IS_TOP_LEVEL",
+			"name" : "pcpnext_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1326,7 +1326,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "progressivenext_SOURCE_DIR",
+			"name" : "pcpnext_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1335,7 +1335,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/bym/games/progressive-android-next/app/src/main/cpp"
+			"value" : "/home/bym/games/pcp-android-next/app/src/main/cpp"
 		}
 	],
 	"kind" : "cache",

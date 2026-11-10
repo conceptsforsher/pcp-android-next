@@ -1,10 +1,10 @@
 plugins { id("com.android.application") }
 android {
-    namespace = "chat.progressive.app.next"
+    namespace = "chat.pcp.app.next"
     compileSdk = 35
     ndkVersion = "27.0.12077973"
     defaultConfig {
-        applicationId = "chat.progressive.app.next"
+        applicationId = "chat.pcp.app.next"
         minSdk = 24; targetSdk = 35; versionCode = 1; versionName = "0.5.5-pre"
         ndk { abiFilters += listOf("arm64-v8a") }
         externalNativeBuild { cmake { arguments += listOf("-DANDROID_STL=c++_shared") } }

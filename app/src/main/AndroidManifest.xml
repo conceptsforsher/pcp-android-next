@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-feature android:glEsVersion="0x00030000" android:required="true" />
     <application
-        android:label="Progressive Next"
+        android:label="PCP Next"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         <activity
-            android:name="chat.progressive.app.next.MainActivity"
+            android:name="chat.pcp.app.next.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait">

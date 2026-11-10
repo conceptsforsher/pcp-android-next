@@ -1,6 +1,6 @@
 /*
- * Progressive Android Next — Pure C++/OpenGL ES IRC Chat
- * Zero JVM UI. Merging into progressive-android 0.5.5+
+ * PCP Android Next — Pure C++/OpenGL ES IRC Chat
+ * Zero JVM UI. Merging into pcp-android 0.5.5+
  */
 
 #include <jni.h>
@@ -219,7 +219,7 @@ static void genData(){
     G.rooms.clear();
     const char*rn[]={"#welcome","#general","#random","#dev","#matrix"};
     const char*rt[]={
-        "Welcome to Progressive IRC | Please read /topic",
+        "Welcome to PCP IRC | Please read /topic",
         "General discussion about anything and everything",
         "Random off-topic chat | Keep it civil",
         "Development | C++ / OpenGL / Matrix bridge",
@@ -339,8 +339,8 @@ static void renderOnboard(){
     G.btns[1].color=Vec4{C_CYAN};
     btn(G.btns[1],14.0f*G.dp);
 
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-24.0f,
-        "Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-24.0f,
+        "PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 /* ====== PROTOCOL SELECTION SCREEN ====== */
@@ -356,7 +356,7 @@ static void renderServerSelect(){
         sprite((G.w-is)*0.5f,y,is,is,G.texLogo);
         y+=is+8.0f*G.dp;
     }
-    txt((G.w-msr("Progressive Chat",20.0f*G.dp))*0.5f,y,"Progressive Chat",20.0f*G.dp,Vec4{C_TITLE});
+    txt((G.w-msr("PCP",20.0f*G.dp))*0.5f,y,"PCP",20.0f*G.dp,Vec4{C_TITLE});
     y+=30.0f*G.dp;
     txt((G.w-msr("Choose your protocol",14.0f*G.dp))*0.5f,y,"Choose your protocol",14.0f*G.dp,Vec4{C_LABEL});
     y+=30.0f*G.dp;
@@ -421,7 +421,7 @@ static void renderServerSelect(){
     /* Settings gear at bottom-right */
     G.btns[3].rect={G.w-50.0f,G.h-50.0f,40.0f,40.0f};G.btns[3].text="#";G.btns[3].color=Vec4{C_DARK};btn(G.btns[3],16.0f*G.dp);
 
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 /* ====== IRC AUTH SCREEN ====== */
@@ -470,7 +470,7 @@ static void renderIrcAuth(){
 
     field("Server","irc.libera.chat","irc.libera.chat");
     field("Port","6667","6667");
-    field("Nickname","progressive_user","your nickname");
+    field("Nickname","pcp_user","your nickname");
     field("Password","","********");
 
     /* TLS row inside card - bright, undeniable */
@@ -494,8 +494,8 @@ static void renderIrcAuth(){
     btn(G.btns[2],14.0f*G.dp);
 
     /* Footer */
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",12.0f))*0.5f,G.h-28.0f,
-        "Progressive Chat v0.5.5-pre",12.0f,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",12.0f))*0.5f,G.h-28.0f,
+        "PCP v0.5.5-pre",12.0f,Vec4{C_HINT});
 }
 
 /* ====== MATRIX LOGIN SCREEN ====== */
@@ -583,8 +583,8 @@ static void renderMatrixLogin(){
     G.btns[2].rect={(G.w-msr("Create account",14.0f*G.dp))*0.5f-8.0f,cy,msr("Create account",14.0f*G.dp)+16.0f,28.0f};
     G.btns[2].text=nullptr;G.btns[2].color=Vec4{0,0,0,0};
 
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-24.0f,
-        "Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-24.0f,
+        "PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 /* ====== SIGN UP SCREEN ====== */
@@ -623,8 +623,8 @@ static void renderSignup(){
     Button reg={{pad,cy,fw,48.0f*G.dp},"Register",Vec4{C_CYAN},false};
     btn(reg,14.0f*G.dp);
 
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-24.0f,
-        "Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-24.0f,
+        "PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 /* ====== PROFILE SCREEN ====== */
@@ -648,7 +648,7 @@ static void renderProfile(){
         G.btns[1+i].color=Vec4{0,0,0,0};G.btns[1+i].text=nullptr;
         y+=48.0f*G.dp;
     }
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 /* ====== SETTINGS SCREEN ====== */
@@ -663,8 +663,8 @@ static void renderSettings(){
         txt(pad+16.0f,y+28.0f*G.dp,items[i],14.0f*G.dp,Vec4{C_WHITE});
         y+=48.0f*G.dp;
     }
-    G.btns[1].rect={pad,y,fw,40.0f*G.dp};G.btns[1].text="Progressive Chat v0.5.5-pre";G.btns[1].color=Vec4{0,0,0,0};
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    G.btns[1].rect={pad,y,fw,40.0f*G.dp};G.btns[1].text="PCP v0.5.5-pre";G.btns[1].color=Vec4{0,0,0,0};
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 /* ====== ROOM INFO SCREEN ====== */
@@ -697,7 +697,7 @@ static void renderRoomInfo(){
         G.btns[1+i].color=Vec4{0,0,0,0};G.btns[1+i].text=nullptr;
         y+=48.0f*G.dp;
     }
-    txt((G.w-msr("Progressive Chat v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"Progressive Chat v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
+    txt((G.w-msr("PCP v0.5.5-pre",10.0f*G.dp))*0.5f,G.h-22.0f,"PCP v0.5.5-pre",10.0f*G.dp,Vec4{C_HINT});
 }
 
 /* ====== CHAT SCREEN ====== */
@@ -991,16 +991,16 @@ static bool initGL(JNIEnv*env,jobject am){
 
 extern "C"{
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeInit(JNIEnv*e,jclass,jint w,jint h,jobject am){
+Java_chat_pcp_app_next_MainActivity_nativeInit(JNIEnv*e,jclass,jint w,jint h,jobject am){
     G.w=w;G.h=h;if(!G.init)initGL(e,am);
 }
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeResize(JNIEnv*,jclass,jint w,jint h){
+Java_chat_pcp_app_next_MainActivity_nativeResize(JNIEnv*,jclass,jint w,jint h){
     G.w=w;G.h=h;G.dw=w*0.75f;if(G.dw>320.0f)G.dw=320.0f;
     if(G.init){glViewport(0,0,w,h);layoutUI();}
 }
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeRender(JNIEnv*,jclass){
+Java_chat_pcp_app_next_MainActivity_nativeRender(JNIEnv*,jclass){
     if(G.init){
         /* Auto-switch carousel every ~5s (300 frames at 60fps) */
         if(G.screen==SCR_SERVER&&++G.login.frameCount>300){
@@ -1012,17 +1012,17 @@ Java_chat_progressive_app_next_MainActivity_nativeRender(JNIEnv*,jclass){
     }
 }
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeTouchDown(JNIEnv*,jclass,jfloat x,jfloat y){if(G.init)td(x,y);}
+Java_chat_pcp_app_next_MainActivity_nativeTouchDown(JNIEnv*,jclass,jfloat x,jfloat y){if(G.init)td(x,y);}
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeTouchUp(JNIEnv*,jclass,jfloat x,jfloat y){if(G.init)tu(x,y);}
+Java_chat_pcp_app_next_MainActivity_nativeTouchUp(JNIEnv*,jclass,jfloat x,jfloat y){if(G.init)tu(x,y);}
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeTouchMove(JNIEnv*,jclass,jfloat x,jfloat y){if(G.init)tm(x,y);}
+Java_chat_pcp_app_next_MainActivity_nativeTouchMove(JNIEnv*,jclass,jfloat x,jfloat y){if(G.init)tm(x,y);}
 
 JNIEXPORT jint JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeGetFocusField(JNIEnv*,jclass){return G.login.focusField;}
+Java_chat_pcp_app_next_MainActivity_nativeGetFocusField(JNIEnv*,jclass){return G.login.focusField;}
 
 JNIEXPORT jstring JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeGetFieldText(JNIEnv*env,jclass,jint field){
+Java_chat_pcp_app_next_MainActivity_nativeGetFieldText(JNIEnv*env,jclass,jint field){
     const char* t="";
     if(field==1){G.login.hsUrl[G.login.hsLen]=0;t=G.login.hsUrl;}
     else if(field==2){G.login.user[G.login.userLen]=0;t=G.login.user;}
@@ -1031,7 +1031,7 @@ Java_chat_progressive_app_next_MainActivity_nativeGetFieldText(JNIEnv*env,jclass
 }
 
 JNIEXPORT void JNICALL
-Java_chat_progressive_app_next_MainActivity_nativeSetFieldText(JNIEnv*env,jclass,jint field,jstring jtext){
+Java_chat_pcp_app_next_MainActivity_nativeSetFieldText(JNIEnv*env,jclass,jint field,jstring jtext){
     const char* s=env->GetStringUTFChars(jtext,nullptr);
     int len=strlen(s);if(len>60)len=60;
     if(field==1){memcpy(G.login.hsUrl,s,len);G.login.hsLen=len;}

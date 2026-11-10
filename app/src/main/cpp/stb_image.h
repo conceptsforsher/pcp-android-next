@@ -20,7 +20,7 @@
       Primarily of interest to game developers and other people who can
           avoid problematic images and only need the trivial interface
 
-      JPEG baseline & progressive (12 bpc/arithmetic not supported, same as stock IJG lib)
+      JPEG baseline & pcp (12 bpc/arithmetic not supported, same as stock IJG lib)
       PNG 1/2/4/8/16-bit-per-channel
 
       TGA (not sure what subset, if a subset)
@@ -1972,7 +1972,7 @@ typedef struct
       stbi_uc *data;
       void *raw_data, *raw_coeff;
       stbi_uc *linebuf;
-      short   *coeff;   // progressive only
+      short   *coeff;   // pcp only
       int      coeff_w, coeff_h; // number of 8x8 coefficient blocks
    } img_comp[4];
 
@@ -1981,7 +1981,7 @@ typedef struct
    unsigned char  marker;      // marker seen while filling entropy buffer
    int            nomore;      // flag if we saw a marker so must stop
 
-   int            progressive;
+   int            pcp;
    int            spec_start;
    int            spec_end;
    int            succ_high;
@@ -2949,7 +2949,7 @@ static void stbi__jpeg_reset(stbi__jpeg *j)
 static int stbi__parse_entropy_coded_data(stbi__jpeg *z)
 {
    stbi__jpeg_reset(z);
-   if (!z->progressive) {
+   if (!z->pcp) {
       if (z->scan_n == 1) {
          int i,j;
          STBI_SIMD_ALIGN(short, data[64]);
@@ -3079,7 +3079,7 @@ static void stbi__jpeg_dequantize(short *data, stbi__uint16 *dequant)
 
 static void stbi__jpeg_finish(stbi__jpeg *z)
 {
-   if (z->progressive) {
+   if (z->pcp) {
       // dequantize and idct the data
       int i,j,n;
       for (n=0; n < z->s->img_n; ++n) {
@@ -3226,7 +3226,7 @@ static int stbi__process_scan_header(stbi__jpeg *z)
       aa = stbi__get8(z->s);
       z->succ_high = (aa >> 4);
       z->succ_low  = (aa & 15);
-      if (z->progressive) {
+      if (z->pcp) {
          if (z->spec_start > 63 || z->spec_end > 63  || z->spec_start > z->spec_end || z->succ_high > 13 || z->succ_low > 13)
             return stbi__err("bad SOS", "Corrupt JPEG");
       } else {
@@ -3339,7 +3339,7 @@ static int stbi__process_frame_header(stbi__jpeg *z, int scan)
          return stbi__free_jpeg_components(z, i+1, stbi__err("outofmem", "Out of memory"));
       // align blocks for idct using mmx/sse
       z->img_comp[i].data = (stbi_uc*) (((size_t) z->img_comp[i].raw_data + 15) & ~15);
-      if (z->progressive) {
+      if (z->pcp) {
          // w2, h2 are multiples of 8 (see above)
          z->img_comp[i].coeff_w = z->img_comp[i].w2 / 8;
          z->img_comp[i].coeff_h = z->img_comp[i].h2 / 8;
@@ -3360,7 +3360,7 @@ static int stbi__process_frame_header(stbi__jpeg *z, int scan)
 #define stbi__SOF(x)         ((x) == 0xc0 || (x) == 0xc1 || (x) == 0xc2)
 #define stbi__SOS(x)         ((x) == 0xda)
 
-#define stbi__SOF_progressive(x)   ((x) == 0xc2)
+#define stbi__SOF_pcp(x)   ((x) == 0xc2)
 
 static int stbi__decode_jpeg_header(stbi__jpeg *z, int scan)
 {
@@ -3381,7 +3381,7 @@ static int stbi__decode_jpeg_header(stbi__jpeg *z, int scan)
          m = stbi__get_marker(z);
       }
    }
-   z->progressive = stbi__SOF_progressive(m);
+   z->pcp = stbi__SOF_pcp(m);
    if (!stbi__process_frame_header(z, scan)) return 0;
    return 1;
 }
@@ -3441,7 +3441,7 @@ static int stbi__decode_jpeg_image(stbi__jpeg *j)
          m = stbi__get_marker(j);
       }
    }
-   if (j->progressive)
+   if (j->pcp)
       stbi__jpeg_finish(j);
    return 1;
 }
@@ -7804,16 +7804,16 @@ STBIDEF int stbi_is_16_bit_from_callbacks(stbi_io_callbacks const *c, void *user
                          #ifdef unused functions
                          bug with < 92 byte PIC,PNM,HDR,TGA
       2.06  (2015-04-19) fix bug where PSD returns wrong '*comp' value
-      2.05  (2015-04-19) fix bug in progressive JPEG handling, fix warning
+      2.05  (2015-04-19) fix bug in pcp JPEG handling, fix warning
       2.04  (2015-04-15) try to re-enable SIMD on MinGW 64-bit
       2.03  (2015-04-12) extra corruption checking (mmozeiko)
                          stbi_set_flip_vertically_on_load (nguillemot)
                          fix NEON support; fix mingw support
       2.02  (2015-01-19) fix incorrect assert, fix warning
       2.01  (2015-01-17) fix various warnings; suppress SIMD on gcc 32-bit without -msse2
-      2.00b (2014-12-25) fix STBI_MALLOC in progressive JPEG
+      2.00b (2014-12-25) fix STBI_MALLOC in pcp JPEG
       2.00  (2014-12-25) optimize JPG, including x86 SSE2 & NEON SIMD (ryg)
-                         progressive JPEG (stb)
+                         pcp JPEG (stb)
                          PGM/PPM support (Ken Miller)
                          STBI_MALLOC,STBI_REALLOC,STBI_FREE
                          GIF bugfix -- seemingly never worked
