@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="chat.progressive.app.next"
+    package="chat.pcp.app.next"
     android:versionCode="1"
     android:versionName="0.5.5-pre" >
 
@@ -15,10 +15,10 @@
     <application
         android:debuggable="true"
         android:extractNativeLibs="false"
-        android:label="Progressive Next"
+        android:label="PCP Next"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         <activity
-            android:name="chat.progressive.app.next.MainActivity"
+            android:name="chat.pcp.app.next.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="true"
             android:screenOrientation="portrait" >

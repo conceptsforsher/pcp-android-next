@@ -1,4 +1,4 @@
-package chat.progressive.app.next;
+package chat.pcp.app.next;
 
 import android.app.Activity;
 import android.content.res.AssetManager;
@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
     private EditText overlayEdit;
     private boolean glReady = false;
 
-    static { System.loadLibrary("progressivenext"); }
+    static { System.loadLibrary("pcpnext"); }
 
     private static native void nativeInit(int w, int h, AssetManager assets);
     private static native void nativeResize(int w, int h);
